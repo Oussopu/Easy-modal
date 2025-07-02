@@ -24,7 +24,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children, style }
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundColor: 'rgba(0, 0, 0, 0.5)', // Couleur par défaut
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -57,23 +57,6 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children, style }
     return ReactDOM.createPortal(
         <div style={overlayStyle} onClick={onClose}>
             <div style={modalContentStyle} onClick={(e) => e.stopPropagation()}>
-                {/* Bouton de fermeture en haut à droite */}
-                <button
-                    onClick={onClose}
-                    style={{
-                        position: 'absolute',
-                        top: '10px',
-                        right: '10px',
-                        background: 'none',
-                        border: 'none',
-                        fontSize: '20px',
-                        cursor: 'pointer',
-                        color: '#aaa',
-                        fontWeight: 'bold',
-                    }}
-                >
-                    &times;
-                </button>
                 {/* Affichage du titre s'il est fourni */}
                 {title && <h2 style={{ textAlign: 'center', marginTop: '0' }}>{title}</h2>}
                 {/* Contenu de la modale centré */}
