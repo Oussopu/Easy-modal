@@ -38,17 +38,6 @@ const Modal = ({ isOpen, onClose, title, children, style }) => {
     // Rendu de la modale dans le corps du document pour éviter les problèmes de z-index
     return react_dom_1.default.createPortal(react_1.default.createElement("div", { style: overlayStyle, onClick: onClose },
         react_1.default.createElement("div", { style: modalContentStyle, onClick: (e) => e.stopPropagation() },
-            react_1.default.createElement("button", { onClick: onClose, style: {
-                    position: 'absolute',
-                    top: '10px',
-                    right: '10px',
-                    background: 'none',
-                    border: 'none',
-                    fontSize: '20px',
-                    cursor: 'pointer',
-                    color: '#aaa',
-                    fontWeight: 'bold',
-                } }, "\u00D7"),
             title && react_1.default.createElement("h2", { style: { textAlign: 'center', marginTop: '0' } }, title),
             react_1.default.createElement("div", { style: { display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%' } }, children))), document.body);
 };
