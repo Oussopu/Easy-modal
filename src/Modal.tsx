@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// Interface defining the props that the Modal component accepts
+// Interface définissant les props que le composant Modal accepte
 interface ModalProps {
     isOpen: boolean;
     onClose: () => void;
@@ -13,25 +13,25 @@ interface ModalProps {
     };
 }
 
-// Modal component that displays a modal window
+// Composant Modal qui affiche une fenêtre modale
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children, style }) => {
     if (!isOpen) return null;
 
-    // Default styles for the modal overlay
+    // Styles par défaut pour l'overlay de la modale
     const defaultOverlayStyle: React.CSSProperties = {
         position: 'fixed',
         top: 0,
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)', // Couleur par défaut
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         zIndex: 1000,
     };
 
-    // Default styles for the modal content
+    // Styles par défaut pour le contenu de la modale
     const defaultModalContentStyle: React.CSSProperties = {
         backgroundColor: '#fff',
         padding: '20px',
@@ -42,7 +42,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children, style }
         position: 'relative',
     };
 
-    // Merging default styles with custom styles
+    // Fusion des styles par défaut avec les styles personnalisés
     const overlayStyle: React.CSSProperties = {
         ...defaultOverlayStyle,
         ...style?.overlay,
@@ -53,11 +53,11 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children, style }
         ...style?.modalContent,
     };
 
-    // Rendering the modal in the document body to avoid z-index issues
+    // Rendu de la modale dans le corps du document pour éviter les problèmes de z-index
     return ReactDOM.createPortal(
         <div style={overlayStyle} onClick={onClose}>
             <div style={modalContentStyle} onClick={(e) => e.stopPropagation()}>
-                {/* Close button in the top right */}
+                {/* Bouton de fermeture en haut à droite */}
                 <button
                     onClick={onClose}
                     style={{
@@ -74,9 +74,9 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children, style }
                 >
                     &times;
                 </button>
-                {/* Display the title if provided */}
+                {/* Affichage du titre s'il est fourni */}
                 {title && <h2 style={{ textAlign: 'center', marginTop: '0' }}>{title}</h2>}
-                {/* Centered modal content */}
+                {/* Contenu de la modale centré */}
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%' }}>
                     {children}
                 </div>

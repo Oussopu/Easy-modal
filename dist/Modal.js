@@ -5,11 +5,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importDefault(require("react"));
 const react_dom_1 = __importDefault(require("react-dom"));
-// Modal component that displays a modal window
+// Composant Modal qui affiche une fenêtre modale
 const Modal = ({ isOpen, onClose, title, children, style }) => {
     if (!isOpen)
         return null;
-    // Default styles for the modal overlay
+    // Styles par défaut pour l'overlay de la modale
     const defaultOverlayStyle = {
         position: 'fixed',
         top: 0,
@@ -22,7 +22,7 @@ const Modal = ({ isOpen, onClose, title, children, style }) => {
         alignItems: 'center',
         zIndex: 1000,
     };
-    // Default styles for the modal content
+    // Styles par défaut pour le contenu de la modale
     const defaultModalContentStyle = {
         backgroundColor: '#fff',
         padding: '20px',
@@ -32,10 +32,10 @@ const Modal = ({ isOpen, onClose, title, children, style }) => {
         boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
         position: 'relative',
     };
-    // Merging default styles with custom styles
+    // Fusion des styles par défaut avec les styles personnalisés
     const overlayStyle = Object.assign(Object.assign({}, defaultOverlayStyle), style === null || style === void 0 ? void 0 : style.overlay);
     const modalContentStyle = Object.assign(Object.assign({}, defaultModalContentStyle), style === null || style === void 0 ? void 0 : style.modalContent);
-    // Rendering the modal in the document body to avoid z-index issues
+    // Rendu de la modale dans le corps du document pour éviter les problèmes de z-index
     return react_dom_1.default.createPortal(react_1.default.createElement("div", { style: overlayStyle, onClick: onClose },
         react_1.default.createElement("div", { style: modalContentStyle, onClick: (e) => e.stopPropagation() },
             react_1.default.createElement("button", { onClick: onClose, style: {
