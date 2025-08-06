@@ -2,6 +2,15 @@
 
 Une librairie React pour afficher des modals de manière simple et personnalisable.
 
+## Prérequis
+Avant de commencer, assurez-vous d'avoir installé les éléments suivants sur votre système :
+
+- Node.js (version 14 ou supérieure)
+- npm (version 6 ou supérieure)
+- React (version 16.8 ou supérieure, pour les hooks)
+
+Nous recommandons également d'utiliser Visual Studio Code ou WebStorm comme éditeur de texte pour le développement.
+
 ## Installation
 
 Pour installer la librairie, utilisez npm :
